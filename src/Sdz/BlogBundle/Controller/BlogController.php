@@ -10,7 +10,6 @@ use Sdz\BlogBundle\Entity\Article;
 
 use Sdz\BlogBundle\Form\ArticleType;
 use Sdz\BlogBundle\Form\ArticleEditType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class BlogController extends Controller
 {
@@ -30,6 +29,7 @@ class BlogController extends Controller
             'nombrePage' => ceil(count($articles)/3)
         ));
 
+        // wtf
     }
 
     public function articleAction($slug)
