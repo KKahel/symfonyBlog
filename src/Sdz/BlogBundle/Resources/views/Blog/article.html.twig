@@ -1,0 +1,30 @@
+<h2>
+    {# On vérifie qu'une image soit bien associée à l'article #}
+    {% if article.image is not null %}
+        <img src="{{  asset(article.image.webpath) }}" alt="{{ article.image.alt }}" />
+    {% endif %}
+    <a href="{{ path('sdzblog_voir', {'slug':article.slug}) }}">{{ article.titre }}</a>
+</h2>
+<i>Par {{ article.auteur }}, le {{ article.date|date('d/m/Y') }}</i>
+
+{% if article.categories.count > 0 %}
+    - Catégories :
+    {% for categorie in article.categories %}
+        {{ categorie.nom }}
+        {% if not loop.last %} - {% endif %}
+    {% endfor %}
+{% endif %}
+
+<div class="well">
+    {{ article.contenu }}
+</div>
+{% if article.competenceArticles|length > 0 %}
+    <div>
+        Compétences utilisées dans cet article :
+        <ul>
+            {% for articleCompetence in article.competenceArticles %}
+                <li>{{ articleCompetence.competence.nom }} : {{ articleCompetence.niveau }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
