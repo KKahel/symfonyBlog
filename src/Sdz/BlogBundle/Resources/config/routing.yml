@@ -1,0 +1,31 @@
+sdzblog_accueil:
+    path:      /{page}
+    defaults:  { _controller: SdzBlogBundle:Blog:index, page: 1 }
+    requirements:
+        page:  \d*
+
+sdzblog_voir:
+    path:      /article/{slug}
+    defaults:  { _controller: SdzBlogBundle:Blog:article }
+#    requirements:
+#        id:  \d+
+
+sdzblog_ajouter:
+    path:      /ajouter
+    defaults:  { _controller: SdzBlogBundle:Blog:ajouter }
+
+sdzblog_modifier:
+    path:    /modifier/{slug}
+    defaults:  { _controller: SdzBlogBundle:Blog:modifier }
+#    requirements:
+#        id:  \d+
+
+sdzblog_supprimer:
+    path:    /supprimer/{slug}
+    defaults:  { _controller: SdzBlogBundle:Blog:supprimer }
+    requirements:
+        methods:  POST
+
+#sdzblog_article:
+#    path:    /article/{slug}
+#    defaults: { _controller: SdzBlogBundle:Blog:article }
